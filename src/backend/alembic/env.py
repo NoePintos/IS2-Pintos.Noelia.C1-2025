@@ -1,7 +1,17 @@
+import os, sys
 from logging.config import fileConfig
 from sqlalchemy import engine_from_config, pool
 from alembic import context
+
+# ✅ Asegurar import de paquetes del proyecto
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(BASE_DIR)
+if PROJECT_DIR not in sys.path:
+    sys.path.insert(0, PROJECT_DIR)
+
+# ✅ Importar Base y modelos para poblar metadata
 from app.db.config import Base, DATABASE_URL
+from app.db import models
 
 # Configuración base de Alembic
 config = context.config

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from app.db.config import Base
 
 class EjemplarModel(Base):
